@@ -22,10 +22,10 @@ class ImageGalleryStatus extends PureComponent {
     if (prevProps.search === search && prevState.page === page) {
       return;
     }
-    if (prevProps.search !== search) {
-      this.setState({ page: 1 });
-      window.scroll(0, 0);
-    }
+    // if (prevProps.search !== search) {
+    //   this.setState({ page: 1 });
+    //   window.scroll(0, 0);
+    // }
 
     this.setState({
       loading: true,
@@ -34,12 +34,10 @@ class ImageGalleryStatus extends PureComponent {
       .getSearchImages({ value: search, page })
       .then(({ hits, totalHits }) => {
         const uniqueHits = this.addIdToCollection(hits);
-        // const uniqueHits = hits; // towe
 
         this.setState(p => {
-          const images = prevProps.search === search
-            ? [...p.images, ...uniqueHits]
-            : uniqueHits;
+          const images = [...p.images, ...uniqueHits]
+            // : uniqueHits;
           return ({
             images,
             totalHits,

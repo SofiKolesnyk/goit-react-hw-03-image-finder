@@ -5,6 +5,7 @@ import ImageGalleryStatus from './ImageGalleryStatus/ImageGalleryStatus';
 import Container from './Container';
 import Modal from './Modal';
 
+
 class App extends PureComponent {
   state = {
     search: '',
